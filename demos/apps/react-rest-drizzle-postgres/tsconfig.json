@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "jsx": "react-jsx",
+    "types": ["node", "vite/client"],
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/client/*"]
+    }
+  },
+  "include": ["src", "scripts", "drizzle", "drizzle.config.ts", "tailwind.config.ts", "vite.config.ts"]
+}

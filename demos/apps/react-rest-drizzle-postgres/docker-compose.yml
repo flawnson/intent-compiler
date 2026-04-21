@@ -1,0 +1,37 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: intent-demo-postgres
+    environment:
+      POSTGRES_DB: intent_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - intent_demo_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d intent_demo"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build:
+      context: ../../..
+      dockerfile: demos/apps/react-rest-drizzle-postgres/Dockerfile
+    container_name: intent-demo-app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/intent_demo
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      PORT: 8787
+      AUTO_SEED_DB: ${AUTO_SEED_DB:-1}
+    ports:
+      - "5173:5173"
+      - "8787:8787"
+
+volumes:
+  intent_demo_pg_data:
