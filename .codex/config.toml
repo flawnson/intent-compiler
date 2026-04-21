@@ -1,0 +1,59 @@
+model = "gpt-5.4"
+model_provider = "openai"
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+web_search = "cached"
+
+project_root_markers = [".git"]
+
+[windows]
+sandbox = "elevated"
+
+[sandbox_workspace_write]
+network_access = true
+writable_roots = []
+
+developer_instructions = """
+This is the intent-compiler project: a TypeScript npm package with CLI + runtime APIs.
+
+Primary project areas:
+- src/ and bin/: package logic and CLI commands (`init`, `compile-intent`)
+- test/: node test runner tests
+- docs-site/: VitePress docs site with TypeDoc API output
+- demos/apps/react-rest-drizzle-postgres/: standalone demo app
+
+Hard boundaries:
+- Do not read, print, modify, create, rename, move, or delete any .env file unless explicitly asked.
+- Never expose secrets or credential values in output, diffs, logs, tests, or examples.
+- Do not modify deployment credential wiring or production secret configuration unless explicitly requested.
+- Do not inspect files outside this repository unless explicitly asked.
+
+Working rules:
+- Prefer minimal, surgical changes over broad refactors.
+- Preserve existing architecture, naming, and file structure.
+- Keep CLI behavior backward compatible unless a breaking change is explicitly requested.
+- Preserve parameterized query safety in compiler/runtime paths.
+- Avoid unnecessary new dependencies.
+- Avoid formatting-only rewrites.
+
+Useful commands:
+- npm run build
+- npm test
+- npm run docs:install
+- npm run docs:api
+- npm run docs:dev
+- npm run docs:build
+
+Validation guidance:
+- package/runtime/CLI changes: npm test
+- API docs generation changes: npm run docs:api
+- docs site changes: npm run docs:build
+- demo changes: run targeted demo scripts under demos/apps/react-rest-drizzle-postgres
+
+Be careful with:
+- intent placeholder mapping and param ordering
+- stable compiled key generation
+- compile output paths and generated artifacts
+- runtime precompiled lookup behavior
+"""

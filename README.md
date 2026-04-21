@@ -115,6 +115,27 @@ npm test
 
 The package publishes compiled files from `dist/` and includes TypeScript declaration files.
 
+## Documentation Site
+
+This repo includes a modern VitePress docs site with TypeDoc API generation.
+
+```bash
+npm run docs:install
+npm run docs:dev
+```
+
+API reference generation only:
+
+```bash
+npm run docs:api
+```
+
+Production docs build:
+
+```bash
+npm run docs:build
+```
+
 ## Demos
 
 See [demos/README.md](demos/README.md) for standalone demo apps.

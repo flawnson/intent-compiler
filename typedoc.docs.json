@@ -1,0 +1,19 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "tsconfig": "tsconfig.json",
+  "out": "docs-site/public/api",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeInternal": true,
+  "intentionallyNotExported": [
+    "CompiledIntentLookupEntry",
+    "CompiledIntentManifestInput",
+    "CompiledIntentPartial",
+    "IntentText",
+    "IntentInput",
+    "ExecuteOptions"
+  ],
+  "readme": "none",
+  "name": "intent-compiler API"
+}

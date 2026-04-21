@@ -140,3 +140,9 @@ vite.config.ts.timestamp-*
 
 # IDE
 .idea/
+
+# Docs site generated artifacts
+docs-site/.vitepress/cache/
+docs-site/.vitepress/dist/
+docs-site/public/api/
+docs-site/static/api/
