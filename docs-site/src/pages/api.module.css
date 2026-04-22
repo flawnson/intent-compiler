@@ -1,0 +1,21 @@
+.main {
+  padding: 1.5rem 0 2.5rem;
+}
+
+.lead {
+  margin-bottom: 0.35rem;
+}
+
+.link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.frame {
+  width: 100%;
+  min-height: 78vh;
+  border: 1px solid #d7e3de;
+  border-radius: 8px;
+  background: #ffffff;
+}

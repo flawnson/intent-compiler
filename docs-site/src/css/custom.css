@@ -1,0 +1,28 @@
+:root {
+  --ifm-color-primary: #0a8f80;
+  --ifm-color-primary-dark: #087b6f;
+  --ifm-color-primary-darker: #076a5f;
+  --ifm-color-primary-darkest: #055045;
+  --ifm-color-primary-light: #10a896;
+  --ifm-color-primary-lighter: #19b8a5;
+  --ifm-color-primary-lightest: #43c8b7;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ifm-font-family-monospace: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #4fd2bf;
+  --ifm-color-primary-dark: #3cc0ad;
+  --ifm-color-primary-darker: #31af9d;
+  --ifm-color-primary-darkest: #288c7f;
+  --ifm-color-primary-light: #64dccb;
+  --ifm-color-primary-lighter: #7de3d5;
+  --ifm-color-primary-lightest: #a3ece2;
+  --ifm-background-color: #151515;
+  --ifm-background-surface-color: #1d1d1d;
+}
+
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}

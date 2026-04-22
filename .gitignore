@@ -98,12 +98,6 @@ dist
 # Sveltekit cache directory
 .svelte-kit/
 
-# vitepress build output
-**/.vitepress/dist
-
-# vitepress cache directory
-**/.vitepress/cache
-
 # Docusaurus cache and generated files
 .docusaurus
 
@@ -142,7 +136,6 @@ vite.config.ts.timestamp-*
 .idea/
 
 # Docs site generated artifacts
-docs-site/.vitepress/cache/
-docs-site/.vitepress/dist/
-docs-site/public/api/
-docs-site/static/api/
+docs-site/.docusaurus/
+docs-site/build/
+docs-site/static/typedoc/

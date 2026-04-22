@@ -1,7 +1,7 @@
 model = "gpt-5.4"
 model_provider = "openai"
 
-approval_policy = "on-request"
+approval_policy = "never"
 sandbox_mode = "workspace-write"
 web_search = "cached"
 

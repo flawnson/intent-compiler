@@ -1,4 +1,7 @@
-# Workflow
+---
+title: Workflow
+sidebar_position: 3
+---
 
 ## What The User Provides
 

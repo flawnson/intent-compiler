@@ -1,4 +1,7 @@
-# Runtime Integration
+---
+title: Runtime Integration
+sidebar_position: 4
+---
 
 `createIntentClient` is the runtime bridge between intent prompts and real execution.
 

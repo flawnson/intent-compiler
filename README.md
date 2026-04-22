@@ -117,7 +117,7 @@ The package publishes compiled files from `dist/` and includes TypeScript declar
 
 ## Documentation Site
 
-This repo includes a modern VitePress docs site with TypeDoc API generation.
+This repo includes a modern Docusaurus (React) docs site with TypeDoc API generation.
 
 ```bash
 npm run docs:install

@@ -1,6 +1,6 @@
 # intent-compiler docs-site
 
-VitePress website for package docs and API reference.
+Docusaurus (React) website for package docs and API reference.
 
 ## Development
 
@@ -17,4 +17,4 @@ npm run docs:dev
 npm run docs:build
 ```
 
-TypeDoc output is generated to `docs-site/public/api`.
+TypeDoc output is generated to `docs-site/static/typedoc`.
