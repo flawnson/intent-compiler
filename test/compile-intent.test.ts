@@ -19,7 +19,7 @@ test("compile-intent discovers code prompts and writes generated artifacts", asy
       JSON.stringify({ name: "fixture-app", scripts: {} }, null, 2)
     );
     writeFile(
-      path.join(tempDirectory, "intent-compiler.config.json"),
+      path.join(tempDirectory, "intent-compiler", "config.json"),
       JSON.stringify(
         {
           version: 1,
@@ -54,8 +54,8 @@ test("compile-intent discovers code prompts and writes generated artifacts", asy
       provider: "stub"
     });
 
-    const manifestPath = path.join(tempDirectory, ".intent-compiler", "compiled-intents.json");
-    const generatedPath = path.join(tempDirectory, "src", "intent-compiler.generated.ts");
+    const manifestPath = path.join(tempDirectory, "intent-compiler", "compiled-intents.json");
+    const generatedPath = path.join(tempDirectory, "intent-compiler", "generated.ts");
 
     assert.equal(fs.existsSync(manifestPath), true);
     assert.equal(fs.existsSync(generatedPath), true);

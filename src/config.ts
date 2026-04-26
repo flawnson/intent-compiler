@@ -46,10 +46,10 @@ function normalizeConfig(raw: unknown): IntentCompilerConfig {
 }
 
 export function loadIntentCompilerConfig(cwd: string): IntentCompilerConfig {
-  const configPath = path.join(cwd, "intent-compiler.config.json");
+  const configPath = path.join(cwd, "intent-compiler", "config.json");
   if (!fs.existsSync(configPath)) {
     throw new Error(
-      `Missing intent-compiler.config.json in ${cwd}. Run "intent-compiler init" first.`
+      `Missing intent-compiler/config.json in ${cwd}. Run "intent-compiler init" first.`
     );
   }
 

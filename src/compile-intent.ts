@@ -86,7 +86,7 @@ const CODE_EXTENSIONS = new Set([".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs"]);
 const EXCLUDED_DIRECTORIES = new Set([
   ".git",
   ".idea",
-  ".intent-compiler",
+  "intent-compiler",
   ".next",
   ".turbo",
   "build",
@@ -253,7 +253,7 @@ function discoverCodeIntents(cwd: string, dialect: Dialect): DiscoveredIntent[] 
 }
 
 function discoverIntentFiles(cwd: string): DiscoveredIntent[] {
-  const intentsDirectory = path.join(cwd, "intents");
+  const intentsDirectory = path.join(cwd, "intent-compiler", "intents");
   if (!fs.existsSync(intentsDirectory)) {
     return [];
   }
@@ -756,11 +756,7 @@ async function compileIntentWithProvider(
 }
 
 function defaultGeneratedModulePath(cwd: string): string {
-  const srcDirectory = path.join(cwd, "src");
-  if (fs.existsSync(srcDirectory) && fs.statSync(srcDirectory).isDirectory()) {
-    return path.join(srcDirectory, "intent-compiler.generated.ts");
-  }
-  return path.join(cwd, "intent-compiler.generated.ts");
+  return path.join(cwd, "intent-compiler", "generated.ts");
 }
 
 function writeManifest(
@@ -850,7 +846,7 @@ export async function runCompileIntentCommand(
     intents: compiledEntries
   };
 
-  const manifestPath = path.resolve(cwd, options.out || ".intent-compiler/compiled-intents.json");
+  const manifestPath = path.resolve(cwd, options.out || "intent-compiler/compiled-intents.json");
   const generatedModulePath = path.resolve(cwd, options.generated || defaultGeneratedModulePath(cwd));
 
   if (!options.dryRun) {

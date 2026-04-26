@@ -1,7 +1,7 @@
 import { createIntentClient, type CompiledIntent } from "intent-compiler";
 import { pool } from "./db.js";
 import { ACTIVE_USERS_PLACEHOLDER_PROMPT, ACTIVE_USERS_SQL } from "./intents.js";
-import { compiledIntentMap } from "./intent-compiler.generated.js";
+import { compiledIntentMap } from "../../intent-compiler/generated.js";
 
 function resolveCompiledSql(compiled: CompiledIntent): string {
   if (!compiled.sql.trim().startsWith("--")) {

@@ -350,10 +350,11 @@ export async function runInitCommand(options: InitOptions = {}): Promise<void> {
     apiKeyEnvVarName
   });
 
-  const configPath = path.join(targetDirectory, "intent-compiler.config.json");
+  const managedDirectory = path.join(targetDirectory, "intent-compiler");
+  const configPath = path.join(managedDirectory, "config.json");
   const envPath = path.join(targetDirectory, ".env");
   const envExamplePath = path.join(targetDirectory, ".env.example");
-  const intentsDirectoryPath = path.join(targetDirectory, "intents");
+  const intentsDirectoryPath = path.join(managedDirectory, "intents");
   const intentsReadmePath = path.join(intentsDirectoryPath, "README.md");
   const starterIntentPath = path.join(intentsDirectoryPath, "get-active-users.intent.txt");
 
@@ -401,7 +402,7 @@ export async function runInitCommand(options: InitOptions = {}): Promise<void> {
   }
   console.log("");
   console.log("Next:");
-  console.log("  1) Review intent-compiler.config.json");
+  console.log("  1) Review intent-compiler/config.json");
   console.log("  2) Add or update secrets in .env");
-  console.log("  3) Add intents in ./intents");
+  console.log("  3) Add intents in intent-compiler/intents/");
 }

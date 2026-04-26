@@ -9,7 +9,7 @@
     "dev:client": "vite --host 0.0.0.0 --port 5173",
     "build:client": "vite build",
     "preview": "vite preview",
-    "compile-intent": "intent-compiler compile-intent --cwd . --generated src/server/intent-compiler.generated.ts --out .intent-compiler/compiled-intents.json",
+    "compile-intent": "intent-compiler compile-intent --cwd .",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
     "db:seed": "tsx scripts/seed.ts"

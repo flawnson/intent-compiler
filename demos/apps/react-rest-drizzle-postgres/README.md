@@ -78,7 +78,7 @@ aiDb.prepare`Find active users in ${country} who signed up after ${afterDate} an
 
 `npm run compile-intent` scans project prompts, gathers context (config, deps, schema snippets), and writes:
 
-- `.intent-compiler/compiled-intents.json`
-- `src/server/intent-compiler.generated.ts`
+- `intent-compiler/compiled-intents.json`
+- `intent-compiler/generated.ts`
 
-Runtime loads compiled query logic from `src/server/intent-compiler.generated.ts`.
+Runtime loads compiled query logic from `intent-compiler/generated.ts`.
