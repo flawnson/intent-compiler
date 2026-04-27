@@ -3,6 +3,7 @@ import type { ActiveUserSummary, ApiError, ApiOk } from "../shared/types";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { aiDb } from "intent-compiler/client";
 
 const defaultAfterDate = "2026-01-01";
 
@@ -15,6 +16,30 @@ async function parseApiResponse<T>(response: Response): Promise<T> {
     throw new Error(payload.error);
   }
   return payload.data;
+}
+
+function toActiveUserSummary(value: unknown): ActiveUserSummary[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+  return value.map((row) => {
+    const source = row as Record<string, unknown>;
+    const signupDate =
+      typeof source.signupDate === "string"
+        ? source.signupDate
+        : typeof source.signup_date === "string"
+          ? source.signup_date
+          : new Date().toISOString();
+    return {
+      id: Number(source.id ?? 0),
+      email: String(source.email ?? ""),
+      fullName: String(source.fullName ?? source.full_name ?? ""),
+      country: String(source.country ?? ""),
+      signupDate,
+      orderCount: Number(source.orderCount ?? source.order_count ?? 0),
+      totalSpendCents: Number(source.totalSpendCents ?? source.total_spend_cents ?? 0)
+    };
+  });
 }
 
 export function App() {
@@ -33,13 +58,9 @@ export function App() {
     setLoading(true);
     setError(null);
     try {
-      const search = new URLSearchParams({
-        country: country.toUpperCase(),
-        after: afterDate
-      });
-      const response = await fetch(`/api/users/active?${search.toString()}`);
-      const data = await parseApiResponse<ActiveUserSummary[]>(response);
-      setRows(data);
+      const statement = aiDb.prepare`Find active users in ${country.toUpperCase()} who signed up after ${afterDate} and include their order count and total spend.`;
+      const data = await aiDb.query(statement, { returnType: toActiveUserSummary });
+      setRows(data as ActiveUserSummary[]);
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "Unable to load users.");
     } finally {

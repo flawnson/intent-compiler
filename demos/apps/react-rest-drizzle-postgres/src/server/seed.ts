@@ -1,4 +1,4 @@
-import { db } from "./db.js";
+import { db } from "./seed-db.js";
 import { orders, users } from "../../drizzle/schema.js";
 
 export async function seedDemoData(): Promise<void> {
